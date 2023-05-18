@@ -1,4 +1,5 @@
 import { Component, computed, effect, signal } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'change-detection',
@@ -6,6 +7,7 @@ import { Component, computed, effect, signal } from '@angular/core';
   styleUrls: ['./change-detection.component.scss']
 })
 export class ChangeDetectionComponent {
+    protected uuid = uuidv4();
     protected counter = signal(0);
     protected computedCounter = computed(() => {
         console.log('Computed Called!');
