@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'change-detection',
@@ -11,6 +11,7 @@ export class ChangeDetectionComponent {
         console.log('Computed Called!');
         return this.counter() * 6;
     });
+    private counterEffect = effect(() => console.log('Effect Called ',this.counter()));
 
     protected inc() {
         this.counter.update(current => {
